@@ -1,0 +1,13 @@
+Write current and max mag capacity.
+Ask the player what kind of bullet they want to load in.
+(Repeated until the magasine is full.)
+When mag is full, clear console, re-write the ammo counter.
+
+
+Write "button to shoot target". 
+After shot, display the damage dealt.
+(Repeated until magasine is empty.)
+
+Ask user if they want to load another magasine. 
+If yes, make them load another magasine.
+If no, quit the program. 
