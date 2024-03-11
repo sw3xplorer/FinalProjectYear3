@@ -1,13 +1,24 @@
+Ask if the instance is host (firing) or client (target).
+    Done through a Y/N statement. "Make instance host?"
+    if Y: load the firing UI.
+    if N: load the target UI.
+
+For firing (host):
+
 Write current and max mag capacity.
 Ask the player what kind of bullet they want to load in.
 (Repeated until the magasine is full.)
 When mag is full, clear console, re-write the ammo counter.
 
-
-Write "button to shoot target". 
+Write button for firing. 
 After shot, display the damage dealt.
 (Repeated until magasine is empty.)
 
 Ask user if they want to load another magasine. 
 If yes, make them load another magasine.
-If no, quit the program. 
+If no, quit the program and notify the client that the host has disconnected, then close client.
+
+For target (client):
+Draw a "target" in the middle of the console.
+"Event box" in the top left corner showing if the most recent shot was a hit or miss.
+Damage coutner in the top right displaying damage for this shot and total damage.

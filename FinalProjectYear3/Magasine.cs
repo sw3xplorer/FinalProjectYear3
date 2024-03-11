@@ -2,10 +2,16 @@
 
 public class Magasine
 {
-    protected int _maxCapacity;
-    protected int _currentCapacity;
+    Stack<Bullet> _magasine;
+    int _maxCapacity = 10;
+    int _currentCapacity;
     public Magasine(Bullet bullet)
     {
-        
+        _magasine = new();
+        _currentCapacity = 0;
+    }
+    public virtual void LoadBullet(Magasine magasine)
+    {
+
     }
 }

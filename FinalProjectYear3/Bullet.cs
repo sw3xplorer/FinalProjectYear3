@@ -2,13 +2,21 @@
 
 public class Bullet
 {
-    protected string _name;
+    string _name;
+    public string Name
+    {
+        get
+        {
+            return _name;
+        }
+        set
+        {
+            _name = value;
+        }
+    }
+
     protected int _damage;
     protected int _size;
     protected int _accuracy;
-
-    public virtual void Shoot()
-    {
-        
-    }
+   
 }
