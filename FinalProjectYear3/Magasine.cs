@@ -21,7 +21,6 @@ public class Magasine
         {
             _currentCapacity += bullet.Size;
             _magasine.Push(bullet);
-            
         }
     }
     public int GetCapacity()
@@ -35,8 +34,9 @@ public class Magasine
         _magasine.Pop();
         return _chamberedBullet;
     }
-    public void RemoveChamberedBullet()
+    public Bullet RemoveChamberedBullet()
     {
-        
+        Bullet _chamberedBullet = new();
+        return _chamberedBullet;
     }
 }

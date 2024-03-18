@@ -1,12 +1,12 @@
 ﻿namespace FinalProjectYear3;
 public class BulletCollection : IContainsBullets
 {
-    List<Bullet> _bullets = new();
+    public static List<Bullet> Bullets = new();
     public BulletCollection()
     {
-        _bullets.Add(new _9mm  {});
-        _bullets.Add(new _45ACP {});
-        _bullets.Add(new _50Cal {});
+        Bullets.Add(new _9mm { });
+        Bullets.Add(new _45ACP { });
+        Bullets.Add(new _50Cal { });
     }
     // public void GetBullets()
     // {

@@ -6,20 +6,24 @@ public class Gun
 {
     bool _confirmAction;
     bool _escKeyPressed;
+    bool _hitTarget;
     int _choice;
     public Magasine Mag = new();
+    Random _generator = new Random();
     Bullet _bulletInChamber = new();
 
     public void UserControl()
     {
         _escKeyPressed = false;
         Select(1, 5, 3, "Load magasine", "Fire", "", false);
-        if(_choice == 0)
+        if (_choice == 0)
         {
             Console.Clear();
-            while(Mag.GetCapacity() < 10 && !_escKeyPressed)
+            while (Mag.GetCapacity() < 10 && !_escKeyPressed)
             {
                 Select(2, 5, 3, "9mm", "45 ACP", "50 caliber", true);
+                // Mag.LoadBullet(BulletCollection.Bullets[_choice]);
+                Mag.LoadBullet(BulletCollection.Bullets[_choice]);
             }
         }
         else
@@ -33,10 +37,16 @@ public class Gun
     // }
     public void Fire()
     {
+        _hitTarget = false;
         _bulletInChamber = Mag.LoadChamber();
-
+        if (_bulletInChamber.Accuracy > _generator.Next(101)) _hitTarget = true;
+        Mag.RemoveChamberedBullet();
     }
 
+    public bool GetHitTarget()
+    {
+        return _hitTarget;
+    }
     public bool Select(int maxChoice, int startPos, int interval, string text1, string text2, string text3, bool escKey)
     {
         _choice = 0;
@@ -45,7 +55,7 @@ public class Gun
         Console.WriteLine(text1);
         Console.SetCursorPosition(1, startPos + interval);
         Console.WriteLine(text2);
-        Console.SetCursorPosition(1, startPos + interval);
+        Console.SetCursorPosition(1, startPos + interval * 2);
         Console.WriteLine(text3);
         while (!_confirmAction)
         {
