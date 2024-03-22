@@ -1,4 +1,5 @@
 ﻿using FinalProjectYear3;
+Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 BulletCollection _bulletCollection = new();
 Bullet _bullet = new();
 _9mm _9Mm = new();

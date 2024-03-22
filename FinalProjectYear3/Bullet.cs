@@ -56,4 +56,9 @@ public class Bullet
             Console.WriteLine("Missed!");
         }
     }
+
+    public static Bullet CreateBullet(Bullet bulletType)
+    {
+        return (Bullet)bulletType.MemberwiseClone();
+    }
 }

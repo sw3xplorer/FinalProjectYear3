@@ -8,6 +8,7 @@ public class BulletCollection : IContainsBullets
         Bullets.Add(new _45ACP { });
         Bullets.Add(new _50Cal { });
     }
+
     // public void GetBullets()
     // {
     //     int i = 0;
