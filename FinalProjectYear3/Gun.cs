@@ -21,11 +21,10 @@ public class Gun
             ClearArea.Clear(0, 0, 40, 20);
             while (Mag.GetCapacity() < 10 && !_escKeyPressed)
             {
-                if(Select(2, 5, 3, "9mm  ACC: 95%  DMG: 5  Size: 1", "45 ACP  ACC: 80%  DMG: 12  Size: 2", "50 caliber  ACC: 75%  DMG: 20  Size: 4", true))
+                if(Select(2, 5, 3, "9mm  ACC: 95%  DMG: 5  Size: 1", "45 ACP  ACC: 80%  DMG: 12  Size: 2", "50 caliber  ACC: 75%  DMG: 20  Size: 4", true) && !_escKeyPressed)
                 {
                     Mag.LoadBullet(BulletCollection.Bullets[_choice]);
                 }
-                // Mag.LoadBullet(BulletCollection.Bullets[_choice]);
                 if(_escKeyPressed)
                 {
                     ClearArea.Clear(0, 0, 40, 25);
@@ -34,7 +33,7 @@ public class Gun
                     Select(1, 5, 3, "Yes", "No (Fire gun)", "", false);
                     if(_choice == 1)
                     {
-                        Fire();
+                        break;
                     }
                     else
                     {
@@ -42,6 +41,7 @@ public class Gun
                     }
                 }
             }
+            Fire();
         }
         else
         {
@@ -66,8 +66,19 @@ public class Gun
             _bulletInChamber = Mag.LoadChamber();
             Select(0, 5, 1, "Fire gun", "", "", false);
             if (_bulletInChamber.Accuracy > _generator.Next(101)) _hitTarget = true;
-            if (_hitTarget) Console.WriteLine("Bricked");
+            if (_hitTarget)
+            {
+                Console.WriteLine("Hit!");
+                Console.WriteLine($"Damage: {_bulletInChamber.GetDamage()} ");
+            }
+            else
+            {
+                Console.WriteLine("Miss!");
+                Console.WriteLine($"Damage: {_bulletInChamber.GetDamage()} ");
+            }
             Mag.RemoveChamberedBullet();
+            Console.SetCursorPosition(135, 0);
+            Console.WriteLine($"Magasine: {Mag.GetCapacity()} / 10 ");
         }
     }
 

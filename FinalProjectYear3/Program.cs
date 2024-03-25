@@ -8,3 +8,6 @@ _50Cal _50Cal = new();
 Gun _gun = new();
 
 _gun.UserControl();
+
+Console.WriteLine("Mag fully emptied!");
+Console.ReadLine();

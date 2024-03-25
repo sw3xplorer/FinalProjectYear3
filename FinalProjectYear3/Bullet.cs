@@ -61,4 +61,8 @@ public class Bullet
     {
         return (Bullet)bulletType.MemberwiseClone();
     }
+    public virtual int GetDamage()
+    {
+        return _damage;
+    }
 }
