@@ -76,6 +76,7 @@ public class Gun
                 Console.WriteLine("Miss!");
                 Console.WriteLine($"Damage: {_bulletInChamber.GetDamage()} ");
             }
+            NetManager.Send(_hitTarget, _bulletInChamber.GetDamage());
             Mag.RemoveChamberedBullet();
             Console.SetCursorPosition(135, 0);
             Console.WriteLine($"Magasine: {Mag.GetCapacity()} / 10 ");
