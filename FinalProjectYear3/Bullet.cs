@@ -2,7 +2,9 @@
 
 public class Bullet
 {
+    // Declare variables which will be needed for bullets.
     protected string _name;
+    // Variables that need to be public are turned into properties.
     public string Name
     {
         get
@@ -40,27 +42,30 @@ public class Bullet
 
         }
     }
-    public virtual void DisplayDamage(Gun gun)
-    {
-        if (gun.GetHitTarget())
-        {
-            // Placeholder positions
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("Target hit!");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine(_damage);
-        }
-        else
-        {
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("Missed!");
-        }
-    }
 
+    // public virtual void DisplayDamage(Gun gun)
+    // {
+    //     if (gun.GetHitTarget())
+    //     {
+    //         // Placeholder positions
+    //         Console.SetCursorPosition(0, 0);
+    //         Console.WriteLine("Target hit!");
+    //         Console.SetCursorPosition(0, 0);
+    //         Console.WriteLine(_damage);
+    //     }
+    //     else
+    //     {
+    //         Console.SetCursorPosition(0, 0);
+    //         Console.WriteLine("Missed!");
+    //     }
+    // }
+
+    // A method which creates a clone (copy) of an instance of a bullet.
     public static Bullet CreateBullet(Bullet bulletType)
     {
         return (Bullet)bulletType.MemberwiseClone();
     }
+    // Returns the damage of the bullet.
     public virtual int GetDamage()
     {
         return _damage;

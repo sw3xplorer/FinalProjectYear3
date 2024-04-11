@@ -4,6 +4,7 @@ namespace FinalProjectYear3;
 
 public class Gun
 {
+    // Declare variables to be used.
     bool _confirmAction;
     bool _escKeyPressed;
     bool _hitTarget;
@@ -12,6 +13,8 @@ public class Gun
     Random _generator = new Random();
     Bullet _bulletInChamber = new();
 
+    // Method which allows the user (host) to make selections via the arrow keys.
+    // Consists of multiple other methods.
     public void UserControl()
     {
         _escKeyPressed = false;
@@ -53,50 +56,56 @@ public class Gun
             }
         }
     }
-    // public void ddd()
-    // {
-    //     Mag.LoadBullet(new _45ACP());
-    // }
+    
+    // Method which fires the gun, ejects the spent bullet cartridge and loads the
+    // next bullet from the magasine into the chamber.
     public void Fire()
     {
         ClearArea.Clear(0,0, 40, 25);
+        // A while loop allowing the user to fire the gun as long as there are bullets.
         while (Mag.GetCapacity() != 0)
         {
             _hitTarget = false;
+            // Gets the bullet at the top of the stack and sets it as the chambered one.
             _bulletInChamber = Mag.LoadChamber();
             Select(0, 5, 1, "Fire gun", "", "", false);
+
+            // Determine if bullet hits.
             if (_bulletInChamber.Accuracy > _generator.Next(101)) _hitTarget = true;
-            if (_hitTarget)
-            {
-                Console.WriteLine("Hit!");
-                Console.WriteLine($"Damage: {_bulletInChamber.GetDamage()} ");
-            }
-            else
-            {
-                Console.WriteLine("Miss!");
-                Console.WriteLine($"Damage: {_bulletInChamber.GetDamage()} ");
-            }
+
+            // Ping the other device with the data of the bullet (DMG) and if it hit.
             NetManager.Send(_hitTarget, _bulletInChamber.GetDamage());
+
+            // Remove spent bullet from chamber.
             Mag.RemoveChamberedBullet();
+
             Console.SetCursorPosition(135, 0);
             Console.WriteLine($"Magasine: {Mag.GetCapacity()} / 10 ");
         }
     }
-
+    // Return if the bullet has hit. 
     public bool GetHitTarget()
     {
         return _hitTarget;
     }
+    // Method that gives the user the ability to select an option, similar to a menu.
+    // The amount of choices, if the ESC key is available and the gap between texts can be
+    // adjusted.
     public bool Select(int maxChoice, int startPos, int interval, string text1, string text2, string text3, bool escKey)
     {
+        // Reset the choice and bool.
         _choice = 0;
         _confirmAction = false;
+
+        // Write out the text for the options.
         Console.SetCursorPosition(1, startPos);
         Console.WriteLine(text1);
         Console.SetCursorPosition(1, startPos + interval);
         Console.WriteLine(text2);
         Console.SetCursorPosition(1, startPos + interval * 2);
         Console.WriteLine(text3);
+
+        // A while loop for being able to select.
         while (!_confirmAction)
         {
             if (_choice >= 0 && _choice <= maxChoice)
