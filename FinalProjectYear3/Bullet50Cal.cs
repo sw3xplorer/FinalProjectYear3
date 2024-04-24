@@ -1,8 +1,8 @@
 ﻿namespace FinalProjectYear3;
 
-public class _50Cal : Bullet
+public class Bullet50Cal : Bullet
 {
-    public _50Cal()
+    public Bullet50Cal()
     {
         _name = "50 cal";
         _accuracy = 75;

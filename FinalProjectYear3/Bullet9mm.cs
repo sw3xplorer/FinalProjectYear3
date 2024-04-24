@@ -1,8 +1,8 @@
 ﻿namespace FinalProjectYear3;
 
-public class _9mm : Bullet
+public class Bullet9mm : Bullet
 {
-    public _9mm()
+    public Bullet9mm()
     {
         _name = "9mm bullet";
         _accuracy = 95;

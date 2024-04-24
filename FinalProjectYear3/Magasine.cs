@@ -6,7 +6,7 @@ public class Magasine
 {
     // Create a stack to serve as a magasine.
     Stack<Bullet> _magasine;
-    // Declara capacity and current capacity variable.
+    // Declare capacity and current capacity variable.
     int _maxCapacity = 10;
     int _currentCapacity;
     // Constructor that makes a new magasine stack, resets the current capacity to 0

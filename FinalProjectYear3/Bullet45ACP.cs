@@ -1,8 +1,8 @@
 ﻿namespace FinalProjectYear3;
 
-public class _45ACP : Bullet
+public class Bullet45ACP : Bullet
 {
-    public _45ACP()
+    public Bullet45ACP()
     {
         _name = "45 ACP";
         _accuracy = 80;

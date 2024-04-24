@@ -13,7 +13,7 @@ public class Bullet
         }
         private set
         {
-            // _name = value;
+
         }
     }
 
@@ -42,23 +42,6 @@ public class Bullet
 
         }
     }
-
-    // public virtual void DisplayDamage(Gun gun)
-    // {
-    //     if (gun.GetHitTarget())
-    //     {
-    //         // Placeholder positions
-    //         Console.SetCursorPosition(0, 0);
-    //         Console.WriteLine("Target hit!");
-    //         Console.SetCursorPosition(0, 0);
-    //         Console.WriteLine(_damage);
-    //     }
-    //     else
-    //     {
-    //         Console.SetCursorPosition(0, 0);
-    //         Console.WriteLine("Missed!");
-    //     }
-    // }
 
     // A method which creates a clone (copy) of an instance of a bullet.
     public static Bullet CreateBullet(Bullet bulletType)

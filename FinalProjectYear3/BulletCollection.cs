@@ -6,8 +6,8 @@ public class BulletCollection
     // Constructor adding the bullets to the list upon launching the app.
     public BulletCollection()
     {
-        Bullets.Add(new _9mm { });
-        Bullets.Add(new _45ACP { });
-        Bullets.Add(new _50Cal { });
+        Bullets.Add(new Bullet9mm { });
+        Bullets.Add(new Bullet45ACP { });
+        Bullets.Add(new Bullet50Cal { });
     }
 }
